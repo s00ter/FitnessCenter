@@ -1,0 +1,14 @@
+﻿@model SearchItem
+
+<form asp-action="InstructorSearch" method="post">
+    <label asp-for="Prop"> Выбор фильтра </label>
+    <select asp-for="Prop">
+
+        @foreach (var l in Enum.GetValues(typeof(SearchProp)))
+        {
+            <option value="@l">@Enum.GetName(typeof(SearchProp), l)</option>
+        }
+    </select>
+    <input asp-for="Value"/>
+    <button type="submit">Найти</button>
+</form>

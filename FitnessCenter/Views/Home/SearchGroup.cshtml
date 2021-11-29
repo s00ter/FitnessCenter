@@ -1,0 +1,14 @@
+﻿@model GroupSearchKey
+
+<form asp-action="SearchGroup" method="post">
+    <label asp-for="Key"> Выбор фильтра </label>
+    <select asp-for="Key">
+
+        @foreach (var l in Enum.GetValues(typeof(SearchKey)))
+        {
+            <option value="@l">@Enum.GetName(typeof(SearchKey), l)</option>
+        }
+    </select>
+    <input asp-for="Value" />
+    <button type="submit">Найти</button>
+</form>

@@ -1,0 +1,14 @@
+﻿@model SubscriberSearchKey
+
+<form asp-action="SubscriberSearch" method="post">
+    <label asp-for="Key"> Выбор фильтра </label>
+    <select asp-for="Key">
+
+        @foreach (var l in Enum.GetValues(typeof(SubscriberKey)))
+        {
+            <option value="@l">@Enum.GetName(typeof(SubscriberKey), l)</option>
+        }
+    </select>
+    <input asp-for="Value" />
+    <button type="submit">Найти</button>
+</form>
